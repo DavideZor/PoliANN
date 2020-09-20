@@ -11,4 +11,4 @@ The codes used in the Master's thesis work are here reported for the sake of com
 
 For the Finite Element Method the Python library FEniCS was exploited, whereas for the Feed Forward Neural Network approach the DeepXDE library (based on TensorFlow 2) was used.
 
-All the resulting figures shown in the Master's thesis are obtained by running together both the codes within the same folder. The codes used to compare the considered methods are not listed here since 
+All the resulting figures shown in the Master's thesis are obtained by running together both the codes presented within the same folder. On the contrary, the codes used to compare the considered methods are not listed here since most of them simply plot the results returned by the illustrated codes.
