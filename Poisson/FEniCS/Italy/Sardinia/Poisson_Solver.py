@@ -54,3 +54,7 @@ plt.ylabel('$y$')
 
 vtkfile = File('Velocity.pvd')
 vtkfile << u
+
+with open("FEniCSPoissonSardinia.txt", "w") as txt_file:
+    for line in range(len(x_coord)):
+      txt_file.write('{}, {}, {};'.format(x_coord[line], y_coord[line], u_array[line]) + "\n")
