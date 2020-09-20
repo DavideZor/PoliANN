@@ -12,7 +12,7 @@ N = len(xx)
 
 t_list = np.arange(8)*0.25
 
-nu = 0.01
+nu = 0.1
 
 for i in t_list:
     
@@ -30,7 +30,7 @@ for i in t_list:
     plt.ylabel('$u$')
     plt.title(tit)
     plt.legend(frameon=True)
-    plt.savefig('NNSolutionBurgersNh3Nl6nu001HBC.png')
+    plt.savefig('NNSolutionBurgersNh3Nl6nu01.png')
     
     
 T = 0.4
