@@ -9,18 +9,18 @@ from __future__ import print_function
 from deepxde.backend import tf
 
 # Definition of the problem parameters
-a = 0		# First point of the domain
-b = 1		# Last point of the domain
+a = 0	    	# First point of the domain
+b = 1	    	# Last point of the domain
 
-T = 1.0		# Time interval length
-nu = 0.0001	# Kinematic viscosity
+T = 2.0	    	# Time interval length
+nu = 0.1 	    # Kinematic viscosity
 
 # Definition of the ANN parameters
 Nd = 4000       # Number of collocation points in the
                 # generalized domain
-Nb = 200        # Number of collocation points used to
+Nb = 400        # Number of collocation points used to
                 # enforce the boundary conditions
-Ni = 250        # Number of points used to enforce the
+Ni = 450        # Number of points used to enforce the
                 # initial condition
 Nh = 3          # Number of hidden layers
 Nl = 40         # Number of nodes per layer
@@ -86,9 +86,18 @@ initializer = 'Glorot uniform'
 # Definition of the ANN learning algorithm
 net = dde.maps.FNN(layers, sigma, initializer)
 
+# Enforce BCs as hard constraints
+# net.apply_output_transform(lambda x, y: \
+#            x[:,0:1] * (1 - x[:, 0:1]) * y)
+
 # Building of the complete model
 model = dde.Model(data, net)
 
 # Model training with the L-BFGS-B algorithm
 model.compile('L-BFGS-B')
 losshistory, train_state = model.train()
+
+# Once the model is trained, it resembles the 
+# solution of the given PDE. In order to obtain 
+# the solution in any point x, the model.predict(x)
+# function must be called.
