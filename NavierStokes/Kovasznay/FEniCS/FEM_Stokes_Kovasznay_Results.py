@@ -1,3 +1,5 @@
+import matplotlib.ticker as ticker
+
 figu = plot(u[0], levels = 40, cmap = 'jet')
 plt.colorbar(figu)
 plt.xlabel('$x$')
@@ -45,8 +47,6 @@ p_ex_array = 0.5 * (1 - np.exp(2*lamb*x_coord))
 diff_u = np.abs(np.array(u_array).flatten() - np.array(u_ex_array).flatten())
 diff_v = np.abs(np.array(v_array).flatten() - np.array(v_ex_array).flatten())
 diff_p = np.abs(np.array(p_array).flatten() - np.array(p_ex_array).flatten())
-
-import matplotlib.ticker as ticker
 
 def fmt(x, pos):
     a, b = '{:.2e}'.format(x).split('e')
