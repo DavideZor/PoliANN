@@ -70,11 +70,6 @@ def Poisson_PoliANN(Nd, Nb, Nh, Nl, sigma, opt, initializer):
                         num_boundary = Nb)
     net = dde.maps.FNN([2] + [Nl] * Nh + [1], 
                        sigma, initializer)
-                       
-    # Strict enforcement of the BCs for the unit square domain
-    # net.apply_output_transform(lambda x, y: \
-    #                           x[:,0:1] * (1 - x[:, 0:1]) * \
-    #                           x[:,1:2] * (1 - x[:, 1:2]) * y)
     
     model = dde.Model(data, net)
     
