@@ -17,7 +17,7 @@ lamb = 1/(2*nu) - np.sqrt((1/(4*(nu**2))) + 4*(np.pi**2))
 # (Taylor - Hood elements)
 degree = 1
 
-V = VectorElement('CG', mesh.ufl_cell(), degree+1)
+V = VectorElement('CG', mesh.ufl_cell(), degree + 1)
 Q = FiniteElement('CG', mesh.ufl_cell(), degree)
 
 # A new mixed variable x = [u, p] is defined. This 
